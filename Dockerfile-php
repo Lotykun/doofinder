@@ -1,0 +1,28 @@
+FROM php:fpm-stretch
+
+RUN apt-get update && apt-get install -y
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        git \
+        zlib1g-dev \
+        libxml2-dev \
+        libzip-dev \
+    && docker-php-ext-install \
+        zip \
+        intl \
+		mysqli \
+        pdo pdo_mysql
+
+RUN pecl install xdebug-2.9.1 \
+    && docker-php-ext-enable xdebug
+
+RUN sed -i '2,2s/buster/buster*/' /etc/apt/preferences.d/argon2-buster
+RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
+RUN apt-get update && apt-get install -y nodejs
+
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+COPY symfony/ /var/www/symfony
+WORKDIR /var/www/symfony/
+RUN npm install
+RUN npm run dev
+WORKDIR /var/www/symfony/
