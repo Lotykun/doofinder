@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Book;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -17,7 +18,7 @@ class BookType extends AbstractType
             ->add('title')
             ->add('author')
             ->add('editorial')
-            ->add('description')
+            ->add('description', TextareaType::class)
             ->add('image', FileType::class, [
                 'mapped' => false,
                 'required' => false,

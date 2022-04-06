@@ -25,7 +25,10 @@
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                <div class="col-md-6" style="position: relative">
+                    <img id="uploadImage" style="position: absolute; left: 200px; top: 360px; cursor: pointer" title="Load New Image" onclick="open_file()" src="{{ asset('build/images/upload_image.png') }}" alt="..." />
+                    <img id="noImage" class="card-img-top mb-5 mb-md-0" src="{{ asset('build/images/no-image-60x70.jpg') }}" alt="..." />
+                </div>
                 <div class="col-md-6">{{ include('book/_form.html.twig') }}</div>
             </div>
         </div>
@@ -34,4 +37,15 @@
     <footer class="py-5 bg-dark">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; doofinderlibrary.com 2022 Juan Lotito Babsky</p></div>
     </footer>
+    <script type="text/javascript">
+        function open_file(){
+            document.getElementById('book_image').click();
+        }
+        book_image.onchange = evt => {
+            const [file] = book_image.files;
+            if (file) {
+                noImage.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
 {% endblock %}

@@ -1,4 +1,30 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="fs-5 mb-5">
+        <div class="col-form-label">
+            {{ form_label(form.title, 'Title') }}
+        </div>
+        {{ form_widget(form.title, {'attr': {'class': 'form-text'}}) }}
+    </div>
+    <div class="fs-5 mb-5">
+        <div class="col-form-label">
+            {{ form_label(form.title, 'Author') }}
+        </div>
+        {{ form_widget(form.author, {'attr': {'class': 'form-text'}}) }}
+    </div>
+    <div class="fs-5 mb-5">
+        <div class="col-form-label">
+            {{ form_label(form.title, 'Editorial') }}
+        </div>
+        {{ form_widget(form.editorial, {'attr': {'class': 'form-text'}}) }}
+    </div>
+    <div class="fs-5 mb-5">
+        <div class="col-form-label">
+            {{ form_label(form.title, 'Description') }}
+        </div>
+        {{ form_widget(form.description) }}
+    </div>
+    {{ form_widget(form.image, {'attr': {'class': 'form-text','hidden': ''}}) }}
+    <div class="d-flex">
+        <button class="btn btn-outline-dark mt-auto">{{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}

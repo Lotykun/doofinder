@@ -52,7 +52,6 @@ class BookController extends AbstractController
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
 
-                // Move the file to the directory where brochures are stored
                 try {
                     $imageFile->move(
                         $this->getParameter('images_directory'),
@@ -61,9 +60,6 @@ class BookController extends AbstractController
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
                 $book->setImage($newFilename);
             }
             $bookRepository->add($book);
@@ -95,18 +91,35 @@ class BookController extends AbstractController
      * @param Request $request
      * @param Book $book
      * @param BookRepository $bookRepository
+     * @param SluggerInterface $slugger
      * @return Response
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function edit(Request $request, Book $book, BookRepository $bookRepository): Response
+    public function edit(Request $request, Book $book, BookRepository $bookRepository, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $book->setImage($newFilename);
+            }
             $bookRepository->add($book);
-            return $this->redirectToRoute('app_book_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_book_show', ['id' => $book->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('book/edit.html.twig', [
