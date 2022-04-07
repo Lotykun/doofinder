@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "8b17befa-da21-44f2-bfd9-436dae492485",
+		"name": "doofinder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create new Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/jlotito/Downloads/historia-interminable.jpg"
+						},
+						{
+							"key": "title",
+							"value": "titulo de prueba",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "autor de prueba",
+							"type": "text"
+						},
+						{
+							"key": "editorial",
+							"value": "editorial de prueba",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://doofinderlibrary.com/api/new",
+					"protocol": "http",
+					"host": [
+						"doofinderlibrary",
+						"com"
+					],
+					"path": [
+						"api",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Book Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "titulo de prueba 2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://doofinderlibrary.com/api/9/edit",
+					"protocol": "http",
+					"host": [
+						"doofinderlibrary",
+						"com"
+					],
+					"path": [
+						"api",
+						"9",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://doofinderlibrary.com/api/9/delete",
+					"protocol": "http",
+					"host": [
+						"doofinderlibrary",
+						"com"
+					],
+					"path": [
+						"api",
+						"9",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://doofinderlibrary.com/api/",
+					"protocol": "http",
+					"host": [
+						"doofinderlibrary",
+						"com"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://doofinderlibrary.com/api/9",
+					"protocol": "http",
+					"host": [
+						"doofinderlibrary",
+						"com"
+					],
+					"path": [
+						"api",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

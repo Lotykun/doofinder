@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Book;
-use App\Form\BookType;
 use App\Repository\BookRepository;
 use App\Validator\ApiRequestValidator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,7 +53,9 @@ class ApiController extends AbstractController
     {
         try {
             $params = $request->request->all();
-            //$params = json_decode($request->getContent(), true);
+            if (count($params) == 0){
+                $params = json_decode($request->getContent(), true);
+            }
             if ($apiRequestValidator->validateCreateBook($params)) {
                 $book = new Book();
                 $imageFile = $request->files->get('image');
@@ -102,6 +103,9 @@ class ApiController extends AbstractController
     {
         try {
             $params = $request->request->all();
+            if (count($params) == 0){
+                $params = json_decode($request->getContent(), true);
+            }
             if (isset($params['title']) && !empty($params['title'])){
                 $book->setTitle($params['title']);
             }
