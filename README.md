@@ -1,11 +1,11 @@
 # PREAMBULO
 _Para la realizacion de esta prueba se ha optado por un sistema distribuido y dockerizado compuesto por un docker nginx como servidor web, un docker de base de datos, y el docker de la aplicacion; para este ultimo docker, se ha optado por un framework symfony simple con servicios de frontend y backend_
 
-_El acceso al frontend es bajo la ruta http://doofinderlibrary.com_
+_El acceso al frontend es bajo la ruta http://doofinderlibrary.com, se trata de un sistema de plantillas twich y que utiliza npm como gestor de paquetes, se renderiza gracias a los controladores, utiliza el servicio de webpack para pre-processar los ficheros desde los assets_
 
 ![Alt text](readme_pics/screenshot1.png)
 
-_El acceso al backend es bajo la ruta http://doofinderlibrary.com/api/_
+_El acceso al backend es bajo la ruta http://doofinderlibrary.com/api/, se trata de una API REST, simple que permite las tipicas operaciones CRUD sobre las entidades; en el fichero de postman existe una coleccion un requests a modo de ejemplo_
 
 ![Alt text](readme_pics/screenshot2.png)
 # INFRAESTRUCTURA DE PROYECTO
@@ -47,7 +47,7 @@ Necesario para toda la configuracion de la aplicacion
 ```
 _src_
 ```
-Se encuentra toa la logia de la aplicación esta compuesto por:
+Se encuentra toda la lógica de la aplicación esta compuesto por:
   * Los controladores
   * Las Entidades
   * Las Entidades Tipo Formualrios
@@ -56,7 +56,7 @@ Se encuentra toa la logia de la aplicación esta compuesto por:
 ```
 _public_
 ```
-Directorio publico que se muestra en el front, se trata de un directorio dinamico que se genera gracias a la compilacion de webpack      
+Directorio publico que se muestra en el front, se trata de un directorio dinámico que se genera gracias a la compilacion de webpack      
 ```
 _templates_
 ```
