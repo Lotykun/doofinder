@@ -3,7 +3,11 @@ _Para la realizacion de esta prueba se ha optado por un sistema distribuido y do
 
 _El acceso al frontend es bajo la ruta http://doofinderlibrary.com_
 
+![Alt text](readme_pics/screenshot1.png)
+
 _El acceso al backend es bajo la ruta http://doofinderlibrary.com/api/_
+
+![Alt text](readme_pics/screenshot2.png)
 # INFRAESTRUCTURA DE PROYECTO
 ### Estructura General
 ![Alt text](readme_pics/folder1.png)
