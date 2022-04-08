@@ -24,12 +24,12 @@ CREATE TABLE `book` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (2,'El señor de los Anillos','J.R.R. Tolkien','Minotauro','lotr-624d9afb1c961.jpg','La historia mas grande jamas contada'),(3,'La historia Interminable','Michael Ende','Planeta','historia-interminable-624b1de4e328b.jpg','La historia mas increible jamas contada'),(4,'La Isla del Tesoro','Robert Louis Stevenson','RBA','la-isla-del-tesoro-624da0fe0f0fc.jpg','La obra mas increible Jamas Contada'),(5,'Cancion de Hielo y Fuego 1','George R.R. Martin','Gigamesh','cancion-624da1766201a.jpg','La obra mas increible jamas contada'),(6,'100 Años de Soledad','Gabriel Garcia Márquez','Real Academia de la Lengua','100-624da2102556d.jpg','La obra mas increible jamas contada'),(7,'El principito','Antoine de Saint-Exupery','Salamandra','principito-624da26bd3d26.jpg','La obra mas increible jamas contada');
+INSERT INTO `book` VALUES (2,'El señor de los Anillos','J.R.R. Tolkien','Minotauro','lotr-624d9afb1c961.jpg','La historia mas grande jamas contada'),(3,'La historia Interminable','Michael Ende','Planeta','historia-interminable-624b1de4e328b.jpg','La historia mas increible jamas contada'),(4,'La Isla del Tesoro','Robert Louis Stevenson','RBA','la-isla-del-tesoro-624da0fe0f0fc.jpg','La obra mas increible Jamas Contada'),(5,'Cancion de Hielo y Fuego 1','George R.R. Martin','Gigamesh','cancion-624da1766201a.jpg','La obra mas increible jamas contada'),(6,'100 Años de Soledad','Gabriel Garcia Márquez','Real Academia de la Lengua','100-624da2102556d.jpg','La obra mas increible jamas contada'),(7,'El principito','Antoine de Saint-Exupery','Salamandra','principito-624da26bd3d26.jpg','La obra mas increible jamas contada'),(12,'Don Quijote de la Mancha','Miguel de Cervantes','Algar','dqdlm-625004dde1dfe.jpg','La historia mas increible jamas contada'),(13,'Romeo y Julieta','William Shakespeare','Alma clasicos Ilustrados','ryjul-62500553752dd.jpg','La historia mas increible jamas contada');
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 DROP TABLE IF EXISTS `doctrine_migration_versions`;

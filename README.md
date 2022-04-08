@@ -1,3 +1,67 @@
+# PREAMBULO
+_Para la realizacion de esta prueba se ha optado por un sistema distribuido y dockerizado compuesto por un docker nginx como servidor web, un docker de base de datos, y el docker de la aplicacion; para este ultimo docker, se ha optado por un framework symfony simple con servicios de frontend y backend_
+
+_El acceso al frontend es bajo la ruta http://doofinderlibrary.com_
+
+_El acceso al backend es bajo la ruta http://doofinderlibrary.com/api/_
+# INFRAESTRUCTURA DE PROYECTO
+### Estructura General
+![Alt text](readme_pics/folder1.png)
+
+_Build_
+```
+Configuracion especifica para los servicios de docker instalados 
+```
+_Mysql_
+```
+Mapeo del docker de Mysql para tener el acceso dsiponible desde el host 
+```
+_Symfony_
+```
+Directorio donde se almacena toda la logica de aplicación  
+```
+_docker-compose.yml_
+```
+Fichero para la creacion y despligue de dockers  
+```
+_Ficheros DockerFile_
+```
+recetas para la creacion del docker especifico  
+```
+_Postman Collection_
+```
+Se trata de un fichero .json que se ha de importar en postman. Es una coleccion de postman con requests ya preparadas para probar la parte del backend  
+```
+### Estructura Symfony
+![Alt text](readme_pics/folder2.png)
+
+_Estructura Básica de un proyecto Symfony destacar lo siguiente_
+
+_Config_
+```
+Necesario para toda la configuracion de la aplicacion  
+```
+_src_
+```
+Se encuentra toa la logia de la aplicación esta compuesto por:
+  * Los controladores
+  * Las Entidades
+  * Las Entidades Tipo Formualrios
+  * Servicios de Repositorio, estos servicios son los encargados de realizar las funciones especifas de base de datos
+  * Otros Servicios (validador)    
+```
+_public_
+```
+Directorio publico que se muestra en el front, se trata de un directorio dinamico que se genera gracias a la compilacion de webpack      
+```
+_templates_
+```
+Este directorio almacena las plantillas twig para el renderizado del front      
+```
+_tests_
+```
+Este directorio almacena todos los tests que se ejecutan gracias a PhpUnit      
+```
 # INSTALACION DEL PROYECTO DE PRUEBA DOOFINDER
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 ### Pre-requisitos 📋
@@ -54,8 +118,11 @@ Importar la coleccion Postman del archivo
 ```
 doofinder (main)$ doofinder.postman_collection.json
 ```
-Mejoras:
-incluir el buscador de doofinder
-agregar tags a los books para una mejor busqueda
-agregar campo para ver si viene de api o no
-agregar traducciones
+# POSIBLES MEJORAS A REALIZAR
+_* Incluir el buscador de doofinder_
+
+_* Agregar tags a los books para una mejor busqueda_
+
+_* Gestion de Usuarios para securizar la insercion y/o borrado de items_
+
+_* Agregar Traducciones_
